@@ -4,6 +4,8 @@ const hourHand = document.querySelector(".hour-hand");
 
 const setDate = () => {
   const now = new Date();
+  const div = document.createElement("div");
+  const clock = document.querySelector(".clock");
 
   const seconds = now.getSeconds();
   const secondsDegrees = (seconds / 60) * 360 + 90; //offset by 90 degrees set in css
@@ -11,9 +13,8 @@ const setDate = () => {
   const minutes = now.getMinutes();
   const minutesDegrees = (minutes / 60) * 360 + 90;
 
-  let hours = Math.floor(now.getHours() / 2);
-  if (hours === 0) hours++;
-
+  let hours = now.getHours();
+  hours -= hours > 12 ? 12 : 0;
   const hoursDegrees = (hours / 12) * 360 + 90;
 
   secondHand.style.transition = secondsDegrees === 90 && "0s";
