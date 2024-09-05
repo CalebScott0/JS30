@@ -53,7 +53,7 @@ body {
 
 .hour {
   left: 45%;
-  top: 45%;
+  top: 46%;
   position: absolute;
   text-align: center;
   display: flex;
@@ -61,10 +61,10 @@ body {
   align-items: center;
   width: 10%;
   height: 10%;
-  color: beige;
+  color: white;
   border-radius: 50%;
   transform: rotateZ(calc((var(--nth-child) + 6) * calc(360 / 12) * 1deg))
-    translateY(400%)
+    translateY(450%)
     rotateZ(calc((var(--nth-child) + 6) * calc(360 / 12) * -1deg));
 }
 
@@ -73,8 +73,8 @@ body {
   height: 30rem;
   border: 20px solid white;
   border-radius: 50%;
-  margin: 0 auto;
   position: relative;
+  margin: -100px auto 0;
   padding: 2rem;
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
     inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
