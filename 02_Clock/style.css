@@ -1,0 +1,101 @@
+html {
+  background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+  background-size: cover;
+  font-family: "helvetica neue";
+  text-align: center;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-size: 2rem;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+}
+:nth-child(1) {
+  --nth-child: 1;
+}
+:nth-child(2) {
+  --nth-child: 2;
+}
+:nth-child(3) {
+  --nth-child: 3;
+}
+:nth-child(4) {
+  --nth-child: 4;
+}
+:nth-child(5) {
+  --nth-child: 5;
+}
+:nth-child(6) {
+  --nth-child: 6;
+}
+:nth-child(7) {
+  --nth-child: 7;
+}
+:nth-child(8) {
+  --nth-child: 8;
+}
+:nth-child(9) {
+  --nth-child: 9;
+}
+:nth-child(10) {
+  --nth-child: 10;
+}
+:nth-child(11) {
+  --nth-child: 11;
+}
+:nth-child(12) {
+  --nth-child: 12;
+}
+
+.hour {
+  left: 45%;
+  top: 45%;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 10%;
+  color: beige;
+  border-radius: 50%;
+  transform: rotateZ(calc((var(--nth-child) + 6) * calc(360 / 12) * 1deg))
+    translateY(400%)
+    rotateZ(calc((var(--nth-child) + 6) * calc(360 / 12) * -1deg));
+}
+
+.clock {
+  width: 30rem;
+  height: 30rem;
+  border: 20px solid white;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
+    inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.clock-face {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform: translateY(-3px); /* account for height of the clock hands */
+}
+
+.hand {
+  width: 50%;
+  height: 6px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%; /* Changes point of rotation to the far right */
+  transform: rotate(90deg); /*Change starting point of hands to 12:00 */
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  /* Sets motion of transition */
+}

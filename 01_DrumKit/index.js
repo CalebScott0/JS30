@@ -14,7 +14,7 @@ function playSound(e) {
 function removeTransition(e) {
   if (e.propertyName !== "transform") return; // skip it if it is not a transform
   // 'this' is always equal to what got called against it ->
-  //  in this case add event listener got called against key so this = key (key is global object in this function)
+  //   add event listener got called against key so this = key (key is global object in this function)
   this.classList.remove("playing");
 }
 
