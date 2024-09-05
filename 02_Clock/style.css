@@ -1,5 +1,6 @@
 html {
-  background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+  background: #018ded
+    url(https://images7.alphacoders.com/700/thumb-1920-700130.png);
   background-size: cover;
   font-family: "helvetica neue";
   text-align: center;
@@ -61,7 +62,7 @@ body {
   align-items: center;
   width: 10%;
   height: 10%;
-  color: white;
+  color: bisque;
   border-radius: 50%;
   transform: rotateZ(calc((var(--nth-child) + 6) * calc(360 / 12) * 1deg))
     translateY(450%)
@@ -71,7 +72,7 @@ body {
 .clock {
   width: 30rem;
   height: 30rem;
-  border: 20px solid white;
+  border: 20px solid bisque;
   border-radius: 50%;
   position: relative;
   margin: -100px auto 0;
@@ -90,7 +91,7 @@ body {
 .hand {
   width: 50%;
   height: 6px;
-  background-color: black;
+  background-color: ivory;
   position: absolute;
   top: 50%;
   transform-origin: 100%; /* Changes point of rotation to the far right */
