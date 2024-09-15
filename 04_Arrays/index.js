@@ -59,57 +59,54 @@ const people = [
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
-const filterInventors = inventors.filter(
-  (inventor) => inventor.year >= 1500 && inventor.year < 1600
+const inventors1500s = inventors.filter(
+  ({ year }) => year > 1499 && year < 1600
 );
-console.table(filterInventors);
+console.table(inventors1500s);
 
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
-const fullNames = inventors.map(
-  (inventor) => `${inventor.first} ${inventor.last}`
-);
-console.table(fullNames);
+const inventorNames = inventors.map(({ first, last }) => ({
+  first,
+  last,
+}));
+console.table(inventorNames);
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
 // return 1 bubbles item up 1
-const ordered = inventors.sort((a, b) => (a.year > b.year ? 1 : -1));
-console.table(ordered);
+const sortBirth = inventors.sort((a, b) => (a.year < b.year ? -1 : 1));
+console.table(sortBirth);
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
-const totalYears = inventors.reduce((total, inventor) => {
-  return total + inventor.passed - inventor.year;
-}, 0);
-console.log(totalYears);
+const totalYears = inventors.reduce(
+  (total, acc) => (total += acc.passed - acc.year),
+  0
+);
+console.log({ totalYears });
 
 // 5. Sort the inventors by years lived
-const oldest = inventors.sort((a, b) => {
-  const lastGuy = a.passed - a.year;
-  const nextGuy = b.passed - b.year;
-  return lastGuy > nextGuy ? -1 : 1;
-});
-
-console.table(oldest);
+const sortYearsLived = inventors.sort((a, b) =>
+  a.passed - a.year > b.passed - b.year ? -1 : 1
+);
+sortYearsLived.map((item) => (item.yearsLived = item.passed - item.year));
+console.table(sortYearsLived);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-// const category = document.querySelector(".mw-category");
-// const links = [...category.querySelectorAll("a")];
-
-// const de = links
-//   .map((link) => link.innerHTML)
-//   .filter((name) => name.includes("de") && !name.includes("des"));
+// const container = document.querySelector('.mw-category')
+// const links = [...container.querySelectorAll('a')]
+// const de = links.map((a) => a.innerHTML).filter((name) => name.includes(' de '))
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
-const alpha = people.sort((lastOne, nextOne) => {
-  const [aLast, aFirst] = lastOne.split(", ");
-  const [bLast, bFirst] = nextOne.split(", ");
-  return aLast > bLast ? 1 : -1;
+const peopleSort = people.sort((a, b) => {
+  const [aLast, aFirst] = a.split(", ");
+  const [bLast, bFirst] = b.split(", ");
+  return aLast < bLast ? -1 : 1;
 });
-console.table(alpha);
+console.table(peopleSort);
 
 const data = [
   "car",
@@ -129,8 +126,9 @@ const data = [
 ];
 // 8. Reduce Exercise
 // Sum up the instances of each of these
-const transportReduce = data.reduce((obj, item) => {
-  obj[item] ? obj[item]++ : (obj[item] = 1);
-  return obj;
+const reducer = data.reduce((total, acc) => {
+  if (!total[acc]) total[acc] = 0;
+  total[acc]++;
+  return total;
 }, {});
-console.table(transportReduce);
+console.table(reducer);
