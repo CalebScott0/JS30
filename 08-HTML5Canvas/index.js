@@ -49,6 +49,7 @@ function draw(e) {
 
   hue = hue >= 360 ? (hue = 0) : hue;
 
+  // flip direcction when linewidth gets too 100 or diminishes to 1
   if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
     direction = !direction;
   }
